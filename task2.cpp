@@ -1,3 +1,4 @@
+//#include"Arr.h"
 #include"LL.h"
 #include<iostream>
 using namespace std;
@@ -12,9 +13,7 @@ void List ::append(int a) {
 void List::clear(){
   movetoStart();
   while(length()){
-    cout<<getValue()<<endl;
     remove();
-    //next();
   }
 }
 int List::Search(int a){
@@ -36,12 +35,12 @@ int main() {
   List a;
   int K, X;
   cin >> K >> X;
-  a.init();
+  a.init(X,K);
   for (int i = 0; i < K; i++) {
     int input;
     cin >> input;
     a.insert(input);
-    a.next();
+    a.moveToPos(a.length());
   }
   a.movetoStart();
   a.print();  
@@ -56,13 +55,12 @@ int main() {
     } else if (Q == 2) {
       a.clear();
       a.print();
-      a.moveToPos(0);
     } else if (Q == 3) {
       int s = a.Search(P);
-      cout<<s<<endl;
-      int pos = a.currPos();
+      if(s!=-1) cout<<"Element Found,index is: "<<s<<endl;
+      else cout<<"-1: Element is not there"<<endl;
       a.print();
     } 
 
   }
-} 
+}  

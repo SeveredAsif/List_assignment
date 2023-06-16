@@ -1,22 +1,21 @@
+//#include"Arr.h"
 #include"LL.h"
-
 #include<iostream>
-
 using namespace std;
 
 int main() {
   List a;
   int K, X;
   cin >> K >> X;
-  a.init();
+  a.init(X,K);
   for (int i = 0; i < K; i++) {
     int input;
     cin >> input;
     a.insert(input);
-    a.next();
+    a.moveToPos(a.length());
   }
   a.movetoStart();
-  a.print();
+  a.print();  
   while (1) {
     int Q, P;
     cin >> Q >> P;
@@ -27,7 +26,7 @@ int main() {
       a.print();
     } else if (Q == 2) {
       int x = a.remove();
-      cout << "removed value: " << x << endl;
+      cout<<"removed value: "<<x<<endl;
       a.print();
     } else if (Q == 3) {
       a.movetoStart();
@@ -42,21 +41,21 @@ int main() {
       a.next();
       a.print();
     } else if (Q == 7) {
-      int x = a.length();
-      cout << "length is " << x << endl;
+      int x=a.length();
+      cout<<"length is "<<x<<endl;
       a.print();
     } else if (Q == 8) {
       int pos = a.currPos();
-      cout << "current position is: " << pos << endl;
+      cout<<"current position is: "<<pos<<endl;
       a.print();
     } else if (Q == 9) {
       a.moveToPos(P);
       a.print();
     } else if (Q == 10) {
       int x = a.getValue();
-      cout << "value is : " << x << endl;
+      cout<<"value is : "<<x<<endl;
       a.print();
-    }
-
   }
+
+}
 }

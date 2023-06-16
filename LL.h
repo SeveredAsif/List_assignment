@@ -13,7 +13,7 @@ class List {
   Node * curr;
   Node * box;
 
-  void init() {
+  void init(int a,int b) {
     head = new Node;
     tail = new Node;
     curr = new Node;
@@ -64,7 +64,7 @@ class List {
   void movetoEnd() {
     Node *it;
     for(it=head;it!=nullptr;it=it->next){
-      if(it->next == tail){
+      if(it->next->next == tail){
         curr = it;
         break;
       }
@@ -84,7 +84,7 @@ class List {
     }
   }
   void next() {
-    curr = curr -> next;
+    if(curr->next->next!=tail) curr = curr -> next;
   }
   void moveToPos(int pos) {
     int count = 0;

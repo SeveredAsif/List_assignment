@@ -111,7 +111,7 @@ class List {
       int len = length();
       for (int i = 0; i <= len; i++) {
         if (i == pos) {
-          cout << "|";
+          if(len!=0) cout << "|";
         }
         if (i != len) cout << getValue();
         if (i < len - 1) {

@@ -1,3 +1,4 @@
+//#include"Arr.h"
 #include"LL.h"
 #include<iostream>
 #include<string>
@@ -21,7 +22,7 @@ int main(){
     cin>>X>>Y>>Z;
     List *CRS = new List[Y];
     for(int i=0;i<Y;i++){
-        CRS[i].init();
+        CRS[i].init(Z,Z);
     }
     int M = Y;
     while(M--){
@@ -32,20 +33,25 @@ int main(){
         cin>>index;
         index -= 1;
         cin.get(c);
+        int count = 0;
         
         while(c!='\n'){
             cin>>car;
-            CRS[index].insert(car);
-            CRS[index].next();
+            count++;
+            if (count<=Z)
+            {
+                CRS[index].insert(car);
+                CRS[index].moveToPos(CRS[index].length());
+            }
             cin.get(c);
         }
     }
     print(CRS,Y);
 
     while(1){
-        char cmd[100];
+        string cmd;
         cin>>cmd;
-        if (strcmp(cmd,"req")==0){
+        if (cmd=="req"){
             int flag = 0;
             for(int i=0;i<Y;i++){
                 if(CRS[i].length()!=0){
@@ -60,14 +66,14 @@ int main(){
                 cout<<"No cars are available"<<endl;
             }
         }
-        if(strcmp(cmd,"ret")==0){
+        if(cmd=="ret"){
             int serial;
             cin>>serial;
             int flag =0;
             for(int i = Y-1;i>=0;i--){
                 if(CRS[i].length()<Z){
                     flag =1;
-                    CRS[i].movetoEnd();
+                    CRS[i].moveToPos(CRS[i].length());
                     CRS[i].insert(serial);
                     print(CRS,Y);
                     break;
@@ -77,7 +83,7 @@ int main(){
                 cout<<"All garages are full"<<endl;
             }
         }
-        if (strcmp(cmd,"end")==0){
+        if (cmd=="end"){
             break;
         }
     }

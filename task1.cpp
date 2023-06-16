@@ -37,6 +37,7 @@ int main() {
       break;
     } else if (Q == 1) {
       a.insert(P);
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -56,6 +57,7 @@ int main() {
     } else if (Q == 2) {
       int x = a.remove();
       cout<<"removed value: "<<x<<endl;
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -74,6 +76,7 @@ int main() {
       cout << ">" << endl;
     } else if (Q == 3) {
       a.movetoStart();
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -92,6 +95,7 @@ int main() {
       cout << ">" << endl;
     } else if (Q == 4) {
       a.movetoEnd();
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -110,6 +114,7 @@ int main() {
       cout << ">" << endl;
     } else if (Q == 5) {
       a.prev();
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -128,6 +133,7 @@ int main() {
       cout << ">" << endl;
     } else if (Q == 6) {
       a.next();
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -147,6 +153,7 @@ int main() {
     } else if (Q == 7) {
       int x=a.length();
       cout<<"length is "<<x<<endl;
+      a.print();
       int pos = a.currPos();
       cout << "<";
       a.movetoStart();
@@ -166,6 +173,7 @@ int main() {
     } else if (Q == 8) {
       int pos = a.currPos();
       cout<<"current position is: "<<pos<<endl;
+      a.print();
       cout << "<";
       a.movetoStart();
       int len = a.length();
@@ -184,6 +192,7 @@ int main() {
 
     } else if (Q == 9) {
       a.moveToPos(P);
+      a.print();
       int pos = a.currPos();
       a.movetoStart();
       cout << "<";

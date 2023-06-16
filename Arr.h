@@ -10,23 +10,8 @@ class List {
   int * it;
   int count;
   int len;
-  public: //List() {
-  //   p = new int[5];
-  //   it = p;
-  //   count = 5;
-  // }
-  // List(int n) {
-  //   p = new int[n];
-  //   it = p;
-  // }
-  // ~List() {
-  //   delete[] p;
-  // }
+  public: 
   int length() {
-    // int length = 0;
-    // while (p[length] != -999) {
-    //   length++;
-    // }
     return len;
   }
   void insert(int a) {
@@ -65,13 +50,13 @@ class List {
     it = p;
   }
   void movetoEnd() {
-    it = p + length();
+    it = p + length()-1;
   }
   void prev() {
     it--;
   }
   void next() {
-    it++;
+    if (it!=p + length()-1) it++;
   }
   int currPos() {
     return it - p;
@@ -96,7 +81,7 @@ class List {
       int len = length();
       for (int i = 0; i <= len; i++) {
         if (i == pos) {
-          cout << "|";
+          if (len!=0) cout << "|";
         }
         if (i != len) cout << getValue();
         if (i < len - 1) {

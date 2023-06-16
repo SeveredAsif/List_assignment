@@ -16,6 +16,39 @@ void print(List* CRS,int Y){
  
     }
 }
+int find_min(List* CRS,int i){
+    int min = CRS[i].getValue();
+    int len = CRS[i].length();
+    int pos = CRS[i].currPos();
+    while(len--){
+        if(CRS[i].getValue()<min){
+            min = CRS[i].getValue();
+            pos = CRS[i].currPos();
+        } 
+        CRS[i].next();
+    }
+    return pos;
+}
+int find_max(List* CRS,int i){
+    if(CRS[i].length()==0)
+    {
+        return 0;
+    }
+    else
+    {
+    int max = CRS[i].getValue();
+    int len = CRS[i].length();
+    int pos = CRS[i].currPos();
+    while(len--){
+        if(CRS[i].getValue()>max){
+            max = CRS[i].getValue();
+            pos = CRS[i].currPos();
+        } 
+        CRS[i].next();
+    }
+    return pos+1;        
+    }
+}
 
 int main(){
     int X,Y,Z;
@@ -57,6 +90,8 @@ int main(){
                 if(CRS[i].length()!=0){
                     flag = 1;
                     CRS[i].movetoStart();
+                    int pos = find_min(CRS,i);
+                    CRS[i].moveToPos(pos);
                     CRS[i].remove();
                     print(CRS,Y);
                     break;
@@ -73,7 +108,9 @@ int main(){
             for(int i = Y-1;i>=0;i--){
                 if(CRS[i].length()<Z){
                     flag =1;
-                    CRS[i].moveToPos(CRS[i].length());
+                    CRS[i].movetoStart();
+                    int pos = find_max(CRS,i);
+                    CRS[i].moveToPos(pos);
                     CRS[i].insert(serial);
                     print(CRS,Y);
                     break;

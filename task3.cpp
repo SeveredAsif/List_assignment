@@ -49,9 +49,9 @@ int main(){
     print(CRS,Y);
 
     while(1){
-        string cmd;
+ char cmd[100];
         cin>>cmd;
-        if (cmd=="req"){
+        if (strcmp(cmd,"req")==0){
             int flag = 0;
             for(int i=0;i<Y;i++){
                 if(CRS[i].length()!=0){
@@ -66,7 +66,7 @@ int main(){
                 cout<<"No cars are available"<<endl;
             }
         }
-        if(cmd=="ret"){
+        if(strcmp(cmd,"ret")==0){
             int serial;
             cin>>serial;
             int flag =0;
@@ -83,7 +83,7 @@ int main(){
                 cout<<"All garages are full"<<endl;
             }
         }
-        if (cmd=="end"){
+        if(strcmp(cmd,"end")==0){
             break;
         }
     }

@@ -57,7 +57,7 @@ int main() {
       a.print();
       a.moveToPos(0);
     } else if (Q == 3) {
-      int s = a.Search(3);
+      int s = a.Search(P);
       cout<<s<<endl;
       int pos = a.currPos();
       a.print();
